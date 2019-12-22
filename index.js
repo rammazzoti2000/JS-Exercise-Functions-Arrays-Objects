@@ -125,7 +125,7 @@ var inventory = [
 function get3rdCar(inventory) {
   const the3rd = inventory.find((item, index) => {
     return index === 2 // we use 2 because index is zero-based.
-  })
+  });
   return `The car is a ${the3rd.car_make} ${the3rd.car_model}`
 }
 
@@ -188,7 +188,7 @@ function getLastCarInfo(inventory) {
 */
 function getCarInfoById(inventory, id) {
   /* code here */
-  for(let i = 0; i < inventory.length; i ++) {
+  for(let i in inventory) {
     return inventory[i].id === id ? `This is a ${inventory[i].car_make} ${inventory[i].car_model}` : undefined;
   }
 }
@@ -203,8 +203,7 @@ function getCarInfoById(inventory, id) {
 */
 function sortCarInventory(inventory) {
   /* code here */
-  return inventory.sort((a, b) => 
-  ((a.car_model > b.car_model) ? 1 : -1));
+  return inventory.sort((a, b) => ((a.car_model > b.car_model) ? 1 : -1));
 }
 
 /**
@@ -220,7 +219,7 @@ function getModelYears(inventory) {
   /* code here */
 
   let newArr = [];
-  for (let i in inventory) {
+  for(let i in inventory) {
     newArr.push(inventory[i].car_year);
   }
   return newArr; 
@@ -241,7 +240,7 @@ function getModelYears(inventory) {
 function getOlderCars(inventory, num) {
   /* code here */
   let newArr = [];
-  for (let i in inventory) {
+  for(let i in inventory) {
     inventory[i].car_year <= num ? newArr.push(inventory[i]) : undefined;
   }
   return newArr;
@@ -261,7 +260,7 @@ function getOlderCars(inventory, num) {
 function getGermanCars(inventory) {
   /* code here */
   let newArr = [];
-  for (let i in inventory) {
+  for(let i in inventory) {
     inventory[i].car_make == "Audi" || inventory[i].car_make == "Mercedes-Benz" 
     || inventory[i].car_make == "Volkswagen" || inventory[i].car_make == "BMW" ?
     newArr.push(inventory[i]) : undefined;
@@ -309,8 +308,7 @@ function carMaker(number) {
   return number = {
     odometer: number,
     drive: function(distance) {
-      return this.odometer += distance;
-      
+      return this.odometer += distance;      
     }
   }
 }
